@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.16",
+  "version": "1.0.0",
+  "id": "${{TEAMS_APP_ID}}",
+  "packageName": "com.microsoft.teams.extension",
+  "developer": {
+    "name": "Teams App, Inc.",
+    "websiteUrl": "https://www.example.com",
+    "privacyUrl": "https://www.example.com/privacy",
+    "termsOfUseUrl": "https://www.example.com/termofuse"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Your Communication Manifest",
+    "full": "Your Communication Manifest stores and retrieves your personal communication preferences."
+  },
+  "description": {
+    "short": "Retrieves your personal communication preferences.",
+    "full": "Your Communication Manifest stores and retrieves your personal communication preferences. This helps you validate and check that you are communicating with people in a way that matches the commitments you have made to them."
+  },
+  "accentColor": "#FFFFFF",
+  "bots": [],
+  "composeExtensions": [
+    {
+      "botId": "${{BOT_ID}}",
+      "commands": [
+        {
+          "id": "getManifest",
+          "context": ["compose", "commandBox"],
+          "description": "Retrieve my personal communication manifest.",
+          "title": "Retrieve Manifest",
+          "type": "query",
+          "parameters": [
+            {
+              "name": "communicationType",
+              "title": "Communication Type",
+              "description": "Communication Type to retrieve manifest for. Acceptable values are: Email, Teams, Other",
+              "inputType": "text"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "configurableTabs": [],
+  "staticTabs": [],
+  "permissions": ["identity", "messageTeamMembers"],
+  "validDomains": []
+}
